@@ -1,7 +1,7 @@
-package com.udacity.bootstrap.service;
+package com.udacity.graphql.service;
 
-import com.udacity.bootstrap.entity.Dog;
-import com.udacity.bootstrap.repository.DogRepository;
+import com.udacity.graphql.entity.Dog;
+import com.udacity.graphql.repository.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

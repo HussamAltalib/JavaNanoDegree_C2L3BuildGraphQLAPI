@@ -1,4 +1,4 @@
-package com.udacity.bootstrap.entity;
+package com.udacity.graphql.entity;
 
 import jakarta.persistence.*;
 

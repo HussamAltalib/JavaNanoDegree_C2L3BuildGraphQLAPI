@@ -1,6 +1,6 @@
-package com.udacity.bootstrap.service;
+package com.udacity.graphql.service;
 
-import com.udacity.bootstrap.entity.Dog;
+import com.udacity.graphql.entity.Dog;
 
 import java.util.List;
 

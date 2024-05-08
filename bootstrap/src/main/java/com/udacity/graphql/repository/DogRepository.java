@@ -1,6 +1,6 @@
-package com.udacity.bootstrap.repository;
+package com.udacity.graphql.repository;
 
-import com.udacity.bootstrap.entity.Dog;
+import com.udacity.graphql.entity.Dog;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
