@@ -1,15 +1,19 @@
 package com.udacity.graphql.mutator;
 
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.udacity.graphql.entity.Dog;
 import com.udacity.graphql.exception.BreedNotFoundException;
+import com.udacity.graphql.exception.DogNotFoundException;
 import com.udacity.graphql.repository.DogRepository;
-import com.udacity.graphql.service.DogNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
-public class Mutation {
+public class Mutation implements GraphQLMutationResolver {
+
+    @Autowired
     private DogRepository dogRepository;
 
     public Mutation(DogRepository dogRepository) {
@@ -57,7 +61,7 @@ public class Mutation {
             dogRepository.save(dog);
             return dog;
         } else {
-            throw new DogNotFoundException("Dog not found");
+            throw new DogNotFoundException("Dog not found", id);
         }
     }
 }

@@ -2,8 +2,8 @@ package com.udacity.graphql.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.udacity.graphql.entity.Dog;
+import com.udacity.graphql.exception.DogNotFoundException;
 import com.udacity.graphql.repository.DogRepository;
-import com.udacity.graphql.service.DogNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -26,7 +26,7 @@ public class Query implements GraphQLQueryResolver {
         if (optionalDog.isPresent()) {
             return optionalDog.get();
         } else {
-            throw new DogNotFoundException("Dog Not Found");
+            throw new DogNotFoundException("Dog Not Found", id);
         }
     }
 
