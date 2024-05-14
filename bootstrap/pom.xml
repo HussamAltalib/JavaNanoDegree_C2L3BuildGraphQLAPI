@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.6.RELEASE</version>
+		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.udacity</groupId>
@@ -14,7 +14,7 @@
 	<name>bootstrap</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,27 +36,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- GraphQL Spring Boot Starter -->
-		<!-- This dependency adds and automatically configures a GraphQL Servlet in a Spring Boot application, making it easier to expose a GraphQL API. -->
+
 		<dependency>
-			<groupId>com.graphql-java</groupId>
-			<artifactId>graphql-spring-boot-starter</artifactId>
-			<version>5.0.2</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-graphql</artifactId>
 		</dependency>
-		<!-- GraphQL Java Tools -->
-		<!-- This dependency is used for schema-first GraphQL service development. It parses .graphql schema files and automatically builds the appropriate data-wiring resolvers. -->
-		<dependency>
-			<groupId>com.graphql-java</groupId>
-			<artifactId>graphql-java-tools</artifactId>
-			<version>5.2.4</version>
-		</dependency>
-		<!-- GraphiQL Spring Boot Starter -->
-		<!-- This dependency provides an integrated GraphiQL interface, which is an in-browser IDE for exploring and testing GraphQL APIs. It allows developers to easily interact with the GraphQL API through a graphical interface. -->
-		<dependency>
-			<groupId>com.graphql-java</groupId>
-			<artifactId>graphiql-spring-boot-starter</artifactId>
-			<version>5.0.2</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>

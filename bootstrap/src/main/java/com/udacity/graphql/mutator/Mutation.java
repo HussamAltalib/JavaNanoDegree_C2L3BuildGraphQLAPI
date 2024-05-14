@@ -1,27 +1,30 @@
 package com.udacity.graphql.mutator;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.udacity.graphql.entity.Dog;
 import com.udacity.graphql.exception.BreedNotFoundException;
 import com.udacity.graphql.exception.DogNotFoundException;
 import com.udacity.graphql.repository.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.stereotype.Controller;
 
 import java.util.Optional;
 
-@Component
-public class Mutation implements GraphQLMutationResolver {
+@Controller
+public class Mutation {
 
-    @Autowired
+
     private DogRepository dogRepository;
 
+    @Autowired
     public Mutation(DogRepository dogRepository) {
         this.dogRepository = dogRepository;
     }
 
 
-    public boolean deleteDogBreed(String breed) {
+    @MutationMapping
+    public boolean deleteDogBreed(@Argument String breed) {
         boolean deleted = false;
         Iterable<Dog> allDogs = dogRepository.findAll();
         // Loop through all dogs to check their breed
@@ -38,26 +41,13 @@ public class Mutation implements GraphQLMutationResolver {
         }
         return deleted;
     }
-
-//    public Dog deleteDogBreed(Long id){
-//        Optional<Dog> optionalDog = dogRepository.findById(id);
-//
-//        if( optionalDog.isPresent()){
-//            Dog dog = optionalDog.get();
-//            dog.setBreed(null);
-//            dogRepository.save(dog);
-//            return dog;
-//        } else {
-//            throw new DogNotFoundException("Dog not found");
-//        }
-//    }
-
-    public Dog updateDogName(String newName, Long id){
+    @MutationMapping
+    public Dog updateDogName(@Argument String name, @Argument Long id){
         Optional<Dog> optionalDog = dogRepository.findById(id);
 
         if( optionalDog.isPresent()){
             Dog dog = optionalDog.get();
-            dog.setName(newName);
+            dog.setName(name);
             dogRepository.save(dog);
             return dog;
         } else {

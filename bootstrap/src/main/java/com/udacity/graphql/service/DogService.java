@@ -7,4 +7,6 @@ import java.util.List;
 public interface DogService {
     List<Dog> retrieveDogs();
 
+    Dog saveDog(Dog dog);
+
 }

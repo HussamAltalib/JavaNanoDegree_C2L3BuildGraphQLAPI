@@ -17,4 +17,8 @@ public class DogServiceImpl implements DogService {
         return (List<Dog>) dogRepository.findAll();
     }
 
+    public Dog saveDog(Dog dog){
+        return dogRepository.save(dog);
+    }
+
 }
